@@ -39,3 +39,10 @@
   .cta-button a:hover {
     background: #218838;
   }
+  .hero-section img {
+    width: 100%; /* Makes it responsive */
+    max-width: 500px; /* Optional: sets a max width */
+    height: auto; /* Maintains aspect ratio */
+    display: block;
+    margin: 0 auto; /* Centering */
+  }
