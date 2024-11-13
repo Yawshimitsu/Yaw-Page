@@ -23,14 +23,14 @@
   padding: 0;
   justify-items: center;
   margin: 0 auto; /* Centers the grid */
-  transform: translateX(0%); /* Nudges grid slightly to the right */
+  transform: translateX(0%); /* Adjusted to center the grid */
 }
 
 /* Project Card Styling - Simple, Minimal */
 .project-card {
   padding: 20px;
   border-radius: 10px;
-  background: #ffffff;
+  background: #666;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -45,27 +45,27 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Headings and Text within Cards */
+/* Headings and Text within Cards - Updated to White */
 .project-card h3 {
   font-size: 1.5rem;
-  color: #333;
+  color: #ffffff; /* Changed to white */
   margin-bottom: 10px;
 }
 
 .project-card p {
   font-size: 1rem;
-  color: #666;
+  color: #ffffff; /* Changed to white */
   margin-bottom: 15px;
 }
 
-/* Link Styling */
+/* Link Styling - Updated to White */
 .project-link {
-  color: #007bff;
+  color: #ffffff; /* Set to white */
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .project-link:hover {
-  color: #0056b3;
+  color: #dddddd; /* Slightly lighter on hover */
 }
