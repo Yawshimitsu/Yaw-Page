@@ -6,8 +6,10 @@ const TaskManager = () => {
   const [task, setTask] = useState<string>("");
 
   const addTask = () => {
-    setTasks([...tasks, task]);
-    setTask("");
+    if (task.trim() !== "") {
+      setTasks([...tasks, task]);
+      setTask("");
+    }
   };
 
   const removeTask = (index: number) => {
@@ -34,7 +36,7 @@ const TaskManager = () => {
       </ul>
 
       {/* Back to Home Link */}
-      <Link to="/yaw-page" className="back-to-home">
+      <Link to="/" className="back-to-home">
         ← Back to Home
       </Link>
     </div>

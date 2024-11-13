@@ -11,10 +11,13 @@ import EcommerceProductPage from './pages/EcommerceProductPage';
 const App = () => {
   const location = useLocation();
 
+  // Determine if the current route is the home page
+  const isHomePage = location.pathname === "/";
+
   return (
     <div className="app-container">
       {/* Conditionally render header only on the home page */}
-      {(location.pathname === "/yaw-page" || location.pathname === "/") && (
+      {isHomePage && (
         <header className="header">
           <h1>Welcome to My Portfolio</h1>
           <p>Learn more about me and my work!</p>
@@ -22,28 +25,23 @@ const App = () => {
       )}
 
       <Routes>
-        {/* Main Home Page Routes */}
-        <Route path="/" element={
-          <>
-            <Home />
-            <About />
-            <Projects />
-            <Contact />
-          </>
-        } />
-        <Route path="/yaw-page" element={
-          <>
-            <Home />
-            <About />
-            <Projects />
-            <Contact />
-          </>
-        } />
+        {/* Main Home Page Route */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Home />
+              <About />
+              <Projects />
+              <Contact />
+            </>
+          }
+        />
 
         {/* Individual Project Routes */}
-        <Route path="projects/task-manager" element={<TaskManager />} />
-        <Route path="projects/weather-dashboard" element={<WeatherDashboard />} />
-        <Route path="projects/ecommerce-product-page" element={<EcommerceProductPage />} />
+        <Route path="/projects/task-manager" element={<TaskManager />} />
+        <Route path="/projects/weather-dashboard" element={<WeatherDashboard />} />
+        <Route path="/projects/ecommerce-product-page" element={<EcommerceProductPage />} />
       </Routes>
     </div>
   );

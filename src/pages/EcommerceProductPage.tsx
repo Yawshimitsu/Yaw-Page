@@ -31,7 +31,7 @@ const EcommerceProductPage = () => {
       </ul>
 
       {/* Back to Home Link */}
-      <Link to="/yaw-page" className="back-to-home">
+      <Link to="/" className="back-to-home">
         ← Back to Home
       </Link>
     </div>

@@ -1,4 +1,5 @@
 import '../styles/Projects.css';
+import { Link } from 'react-router-dom';
 
 const Projects = () => {
   return (
@@ -10,21 +11,21 @@ const Projects = () => {
         <div className="project-card">
           <h3>Task Manager</h3>
           <p>Manage tasks with add and delete functionality.</p>
-          <a href="/yaw-page/projects/task-manager" className="project-link">View Project</a>
+          <Link to="/projects/task-manager" className="project-link">View Project</Link>
         </div>
 
         {/* Weather Dashboard Project */}
         <div className="project-card">
           <h3>Weather Dashboard</h3>
           <p>Real-time weather data for various cities.</p>
-          <a href="/yaw-page/projects/weather-dashboard" className="project-link">View Project</a>
+          <Link to="/projects/weather-dashboard" className="project-link">View Project</Link>
         </div>
 
         {/* E-commerce Product Page Project */}
         <div className="project-card">
           <h3>E-commerce Product Page</h3>
           <p>A simple product page with add-to-cart functionality.</p>
-          <a href="/yaw-page/projects/ecommerce-product-page" className="project-link">View Project</a>
+          <Link to="/projects/ecommerce-product-page" className="project-link">View Project</Link>
         </div>
 
       </div>
