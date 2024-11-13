@@ -50,3 +50,22 @@
   .contact-form button:hover {
     background: #218838;
   }
+
+  .download-cv {
+    margin-top: 20px;
+  }
+  
+  .download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .download-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
