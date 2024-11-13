@@ -2,31 +2,30 @@
   padding: 40px 0;
   background: none;
   text-align: center;
-  max-width: 90%; /* Ensures alignment with other sections */
+  max-width: 100%;
   margin: 0 auto;
 }
 
 /* Heading Style */
 .projects-container h2 {
   font-size: 2rem;
-  color: #ffffff; /* Set to white */
+  color: #ffffff;
   margin-bottom: 20px;
   font-weight: bold;
 }
 
-/* Modern Responsive Grid */
+/* Responsive Projects Grid */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
-  max-width: 1200px;
-  padding: 0;
-  justify-items: center;
-  margin: 0 auto; /* Centers the grid */
-  transform: translateX(0%); /* Adjusted to center the grid */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid layout */
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 10px;
+  justify-content: center;
 }
 
-/* Project Card Styling - Simple, Minimal */
+/* Project Card Styling */
 .project-card {
   padding: 20px;
   border-radius: 10px;
@@ -34,9 +33,8 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: none;
-  max-width: 280px;
   width: 100%;
+  max-width: 280px;
 }
 
 /* Hover Effect for Project Cards */
@@ -45,27 +43,47 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Headings and Text within Cards - Updated to White */
+/* Headings and Text within Cards */
 .project-card h3 {
   font-size: 1.5rem;
-  color: #ffffff; /* Changed to white */
+  color: #ffffff;
   margin-bottom: 10px;
 }
 
 .project-card p {
   font-size: 1rem;
-  color: #ffffff; /* Changed to white */
+  color: #ffffff;
   margin-bottom: 15px;
 }
 
-/* Link Styling - Updated to White */
+/* Link Styling */
 .project-link {
-  color: #ffffff; /* Set to white */
+  color: #ffffff;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .project-link:hover {
-  color: #dddddd; /* Slightly lighter on hover */
+  color: #dddddd;
+}
+
+/* Additional Media Queries for Responsive Stacking */
+@media (max-width: 1090px) {
+  .projects-grid {
+    grid-template-columns: 1fr; /* Stacks items in a single column */
+    justify-items: center; /* Centers the single-column items */
+  }
+}
+
+@media (min-width: 1090px) and (max-width: 1400px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjusts columns for medium screens */
+  }
+}
+
+@media (min-width: 1400px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr); /* Fixed 3-column layout for larger screens */
+  }
 }
