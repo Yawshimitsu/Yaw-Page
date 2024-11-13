@@ -1,45 +1,71 @@
 .projects-container {
-    padding: 50px;
-    background: #f8f9fa;
-    text-align: center;
-  }
-  
-  .projects-container h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-  }
-  
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-  }
-  
-  .project-card {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  .project-card h3 {
-    font-size: 1.8rem;
-  }
-  
-  .project-card p {
-    font-size: 1.1rem;
-    color: #666;
-  }
-  
-  .project-link {
-    display: inline-block;
-    margin-top: 15px;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  .project-item {
-    background-color: #666;
-    padding: 10px;
-    margin: 10px 0;
-  }
+  padding: 40px 0;
+  background: none;
+  text-align: center;
+  max-width: 90%; /* Ensures alignment with other sections */
+  margin: 0 auto;
+}
+
+/* Heading Style */
+.projects-container h2 {
+  font-size: 2rem;
+  color: #ffffff; /* Set to white */
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Modern Responsive Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  padding: 0;
+  justify-items: center;
+  margin: 0 auto; /* Centers the grid */
+  transform: translateX(0%); /* Nudges grid slightly to the right */
+}
+
+/* Project Card Styling - Simple, Minimal */
+.project-card {
+  padding: 20px;
+  border-radius: 10px;
+  background: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  max-width: 280px;
+  width: 100%;
+}
+
+/* Hover Effect for Project Cards */
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Headings and Text within Cards */
+.project-card h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* Link Styling */
+.project-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
+  color: #0056b3;
+}
