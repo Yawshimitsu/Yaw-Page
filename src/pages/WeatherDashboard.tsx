@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/WeatherDashboard.css';
 
@@ -8,6 +8,16 @@ const WeatherDashboard = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [backgroundImage, setBackgroundImage] = useState<string>('');
+
+  useEffect(() => {
+    // Add no-scroll class to body when component mounts
+    document.body.classList.add('no-scroll');
+
+    // Remove no-scroll class when component unmounts
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
+  }, []);
 
   const getBackgroundImage = (weatherCode: number): string => {
     if (weatherCode === 0) return '/yaw-page/Sunny_day.webp';
@@ -119,19 +129,9 @@ const WeatherDashboard = () => {
         </div>
       )}
 
-      {/* Conditional rendering for the button */}
-      {weather ? (
-        <button
-          className="back-to-home"
-          onClick={() => window.location.reload()}
-        >
-          Refresh Page
-        </button>
-      ) : (
-        <Link to="/" className="back-to-home">
-          ← Back to Home
-        </Link>
-      )}
+      <Link to="/" className="back-to-home">
+        ← Back to Home
+      </Link>
     </div>
   );
 };

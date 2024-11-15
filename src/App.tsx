@@ -1,4 +1,4 @@
-import './App.css';  // Your global CSS for styling
+import './App.css'; // Your global CSS for styling
 import { Routes, Route, useLocation } from 'react-router-dom';
 import About from './components/About';
 import Projects from './components/Projects';
@@ -15,7 +15,7 @@ const App = () => {
   const isHomePage = location.pathname === "/";
 
   return (
-    <div className="app-container">
+    <div className={`app-container ${isHomePage ? 'scrollable' : ''}`}>
       {/* Conditionally render header only on the home page */}
       {isHomePage && (
         <header className="header">
@@ -25,7 +25,6 @@ const App = () => {
       )}
 
       <Routes>
-        {/* Main Home Page Route */}
         <Route
           path="/"
           element={
@@ -37,8 +36,6 @@ const App = () => {
             </>
           }
         />
-
-        {/* Individual Project Routes */}
         <Route path="/projects/task-manager" element={<TaskManager />} />
         <Route path="/projects/weather-dashboard" element={<WeatherDashboard />} />
         <Route path="/projects/ecommerce-product-page" element={<EcommerceProductPage />} />
