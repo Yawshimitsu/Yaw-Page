@@ -1,10 +1,11 @@
+/* Global Styles */
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
     overflow-x: hidden;
-    font-family: 'Arial', sans-serif; /* Modern font */
+    font-family: 'Arial', sans-serif;
     box-sizing: border-box;
 }
 
@@ -16,6 +17,11 @@ body {
     width: 100%;
     background-color: #242424;
     overflow-y: auto;
+}
+.error-text {
+    color: #ff0000;
+    font-size: 1rem;
+    margin-top: 10px;
 }
 
 /* Weather Dashboard Container */
@@ -33,7 +39,7 @@ body {
 
 .weather-dashboard.weather-loaded {
     min-height: 100vh;
-    overflow-y: auto; /* Allow content scroll if required */
+    overflow-y: hidden; /* Prevent vertical scrolling on the container */
 }
 
 /* Dashboard Title */
@@ -126,7 +132,6 @@ body {
     overflow-x: auto; /* Enable horizontal scrolling */
     overflow-y: hidden; /* Prevent vertical scrolling */
     padding: 10px;
-    padding-left: 15px;
     -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile */
     scrollbar-width: thin;
     scrollbar-color: #003399 rgba(0, 0, 0, 0.1);
@@ -142,11 +147,10 @@ body {
 }
 
 .forecast-card {
-    flex: 0 0 100px; /* Fixed width for cards */
-    min-width: 100px;
+    flex: 0 0 120px; /* Fixed width for cards */
+    min-width: 120px;
     max-width: 120px;
     height: auto; /* Adapt card height based on content */
-    margin-right: 10px;
     background-color: rgba(0, 0, 0, 0.8); /* Darker background for readability */
     color: white;
     text-align: center;
@@ -154,6 +158,14 @@ body {
     padding: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
+}
+
+.forecast-card:first-child {
+    margin-left: 10px; /* Padding for the first card */
+}
+
+.forecast-card:last-child {
+    margin-right: 10px; /* Padding for the last card */
 }
 
 .forecast-card:hover {
@@ -184,31 +196,19 @@ body {
     color: #003399;
 }
 
-/* Responsive Design */
-
 /* Mobile Screens */
 @media (max-width: 768px) {
-    .input-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .city-input,
-    .fetch-button {
-        width: 90%;
-    }
-
     .forecast-grid {
-        padding-left: 10px; /* Padding for better visibility of the first card */
-        padding-right: 10px;
+        display: flex;
+        flex-direction: row; /* Cards arranged horizontally */
+        flex-wrap: nowrap; /* Prevent wrapping */
+        overflow-x: auto; /* Horizontal scrolling */
+        padding-left: 15px; /* Padding for better visibility */
     }
 
-    .forecast-card:first-child {
-        margin-left: 10px; /* Ensure first card is visible */
-    }
-
-    .forecast-card:last-child {
-        margin-right: 10px; /* Ensure last card is visible */
+    .forecast-card {
+        flex: 0 0 100px; /* Smaller cards for mobile */
+        font-size: 0.9rem;
     }
 }
 
