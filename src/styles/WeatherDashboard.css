@@ -4,7 +4,7 @@ html, body {
     height: 100%;
     width: 100%;
     overflow-x: hidden;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Arial', sans-serif; /* Modern font */
     box-sizing: border-box;
 }
 
@@ -28,11 +28,12 @@ body {
     width: 100vw;
     background: url('/yaw-page/Weather_Dashboard.webp') no-repeat center center / cover;
     position: relative;
+    overflow: hidden; /* Prevent the whole page from scrolling */
 }
 
 .weather-dashboard.weather-loaded {
     min-height: 100vh;
-    overflow-y: auto;
+    overflow-y: auto; /* Allow content scroll if required */
 }
 
 /* Dashboard Title */
@@ -122,16 +123,17 @@ body {
     display: flex;
     flex-direction: row;
     gap: 10px;
-    overflow-x: scroll !important; /* Ensure horizontal scrolling */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Prevent vertical scrolling */
     padding: 10px;
-    padding-left: 15px; /* Add left padding for the first card */
+    padding-left: 15px;
     -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile */
-    scrollbar-width: thin; /* Modern scrollbar styling */
+    scrollbar-width: thin;
     scrollbar-color: #003399 rgba(0, 0, 0, 0.1);
 }
 
 .forecast-grid::-webkit-scrollbar {
-    height: 8px;
+    height: 8px; /* Horizontal scrollbar size */
 }
 
 .forecast-grid::-webkit-scrollbar-thumb {
@@ -140,7 +142,7 @@ body {
 }
 
 .forecast-card {
-    flex: 0 0 100px; /* Fixed width for mobile cards */
+    flex: 0 0 100px; /* Fixed width for cards */
     min-width: 100px;
     max-width: 120px;
     height: auto; /* Adapt card height based on content */
@@ -186,23 +188,37 @@ body {
 
 /* Mobile Screens */
 @media (max-width: 768px) {
-    .forecast-grid {
+    .input-container {
+        flex-direction: column;
         gap: 10px;
-        overflow-x: scroll;
-        padding-left: 15px; /* Extra padding to ensure all cards are visible */
+    }
+
+    .city-input,
+    .fetch-button {
+        width: 90%;
+    }
+
+    .forecast-grid {
+        padding-left: 10px; /* Padding for better visibility of the first card */
+        padding-right: 10px;
     }
 
     .forecast-card:first-child {
-        margin-left: 15px;
+        margin-left: 10px; /* Ensure first card is visible */
     }
 
     .forecast-card:last-child {
-        margin-right: 15px;
+        margin-right: 10px; /* Ensure last card is visible */
     }
 }
 
 /* Large Screens */
 @media (min-width: 1025px) {
+    .weather-dashboard {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
     .forecast-grid {
         gap: 20px;
     }
