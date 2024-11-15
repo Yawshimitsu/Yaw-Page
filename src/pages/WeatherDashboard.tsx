@@ -64,11 +64,6 @@ const WeatherDashboard = () => {
         backgroundImage: weather
           ? `url(${backgroundImage})`
           : `url('/yaw-page/Weather_Dashboard.webp')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        height: '80vh',
-        width: '100vw',
       }}
     >
       <h2 className="dashboard-title">Weather Dashboard</h2>
