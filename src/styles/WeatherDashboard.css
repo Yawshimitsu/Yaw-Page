@@ -15,9 +15,9 @@ html, body {
     height: 100%;
     width: 100%;
     background-color: #242424;
-    overflow: hidden; /* Prevent any scroll */
   }
   
+  /* Weather dashboard container */
   .weather-dashboard {
     display: flex;
     flex-direction: column;
@@ -28,21 +28,12 @@ html, body {
     margin: 0;
     padding: 0;
     background-image: url('/yaw-page/Weather_Dashboard.webp'); /* Background image */
-    background-size: 100% 100%; /* Stretch the image to fill the entire screen */
+    background-size: cover; /* Stretch the image to fill the entire screen */
     background-position: center; /* Center the background image */
     background-repeat: no-repeat; /* Prevent tiling */
     overflow: hidden; /* Prevent scrolling */
   }
   
-  /* Max width applied when the screen width goes over 1240px */
-  @media (min-width: 1240px) {
-    .weather-dashboard {
-      max-width: 80%;  /* Adjust this value for the width you want */
-      margin: 0 auto;  /* Center the weather-dashboard */
-    }
-  }
-  
-  /* Title Styling */
   .dashboard-title {
     margin-bottom: 20px;
     font-size: 2.5rem;
@@ -51,7 +42,7 @@ html, body {
     font-weight: bold;
   }
   
-  /* Input Container Styling */
+  /* Input container */
   .input-container {
     display: flex;
     justify-content: center;
@@ -60,7 +51,7 @@ html, body {
     flex-wrap: wrap;
   }
   
-  /* Input Field Styling */
+  /* City input styling */
   .city-input {
     padding: 12px;
     font-size: 1.1rem;
@@ -72,7 +63,7 @@ html, body {
     transition: border-color 0.3s;
   }
   
-  /* Button Styling */
+  /* Fetch button */
   .fetch-button {
     padding: 12px 20px;
     font-size: 1.1rem;
@@ -84,13 +75,13 @@ html, body {
     transition: background-color 0.3s, transform 0.2s;
   }
   
-  /* Button Hover */
+  /* Button hover */
   .fetch-button:hover {
     background-color: #002266;
     transform: scale(1.05);
   }
   
-  /* Weather Details Section */
+  /* Weather details */
   .weather-details {
     margin-top: 20px;
     text-align: center;
@@ -109,7 +100,7 @@ html, body {
     margin: 8px 0;
   }
   
-  /* Forecast Section */
+  /* Forecast section */
   .forecast {
     margin-top: auto;
     padding-top: 20px;
@@ -133,7 +124,6 @@ html, body {
     scrollbar-color: #003399 rgba(0, 0, 0, 0.1);
   }
   
-  /* Forecast Card */
   .forecast-card {
     flex: 0 0 120px;
     padding: 12px;
@@ -173,7 +163,7 @@ html, body {
     z-index: 2;
   }
   
-  /* Back to Home Button */
+  /* Back to home button */
   .back-to-home {
     display: inline-block;
     margin-top: 25px;
@@ -195,87 +185,79 @@ html, body {
     color: white;
   }
   
-  /* For smaller screens (max-width: 768px) */
+  /* Media queries for mobile (max-width: 768px) */
   @media (max-width: 768px) {
     .weather-dashboard {
-      height: auto; /* Make sure height adjusts to the content */
+      height: 100vh; /* Full height */
       width: 100vw; /* Full width */
-      padding: 20px;
     }
   
     .input-container {
       flex-direction: column;
       align-items: center;
-      width: 100%;
     }
   
     .city-input {
-      width: 90%; /* Full width input on small screens */
+      width: 90%;
     }
   
     .fetch-button {
-      width: 90%; /* Full width button on small screens */
-    }
-  
-    .forecast {
-      margin-top: 20px;
-      width: 100%; /* Ensure forecast section takes full width */
-      overflow-x: auto;
-      display: flex;
-      flex-direction: column; /* Stack forecast title and forecast grid vertically */
-      gap: 10px; /* Add spacing between title and grid */
-      align-items: center; /* Center the content horizontally */
-    }
-  
-    .forecast-title {
-      font-size: 1.5rem;
-      margin-bottom: 10px; /* Space between the title and the forecast grid */
-      color: #003399;
-      font-weight: bold;
-      text-align: center;
-      width: 100%; /* Ensure title spans full width */
+      width: 90%;
     }
   
     .forecast-grid {
-      display: flex;
       gap: 10px;
-      padding: 10px;
-      -webkit-overflow-scrolling: touch; /* Smooth scrolling */
-      overflow-x: auto; /* Horizontal scrolling */
-      justify-content: center; /* Center the forecast cards horizontally */
-      flex-wrap: nowrap; /* Prevent wrapping of forecast cards */
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      display: flex;
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile */
     }
   
     .forecast-card {
       flex: 0 0 100px;
       font-size: 0.9rem;
-      min-width: 100px; /* Ensure cards have a minimum width */
-      text-align: center;
-      padding: 10px;
+      min-width: 100px;
+      margin-right: 10px;
     }
   
-    .forecast-card p {
-      margin: 5px 0;
+    .forecast-title {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: bold;
     }
   
     .back-to-home {
       margin-top: 20px;
-      width: 90%; /* Make the button full width */
-      padding: 12px;
-      font-size: 1rem;
-      text-decoration: none;
-      color: #003399;
-      background-color: transparent;
-      border: 1px solid #003399;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      text-align: center;
-      transition: background-color 0.3s, color 0.3s;
+    }
+  }
+  
+  /* Media queries for larger screens (min-width: 1025px) */
+  @media (min-width: 1025px) {
+    .weather-dashboard {
+      max-width: 80%; /* Adjust the max-width of the container */
+      margin: 0 auto; /* Center the content */
     }
   
-    .back-to-home:hover {
-      background-color: #003399;
-      color: white;
+    .input-container {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .city-input {
+      width: 60%;
+    }
+  
+    .fetch-button {
+      width: auto;
+    }
+  
+    .forecast-grid {
+      gap: 20px;
+    }
+  
+    .forecast-card {
+      flex: 0 0 150px;
+      font-size: 1rem;
     }
   }
