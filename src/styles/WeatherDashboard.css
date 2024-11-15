@@ -23,29 +23,50 @@ html, body {
   .weather-dashboard {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Start from top */
+    justify-content: center; /* Center content vertically */
     align-items: center; /* Center content horizontally */
-    width: 100vw; /* Full width */
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
     margin: 0;
     padding: 0;
     background-image: url('/yaw-page/Weather_Dashboard.webp'); /* Background image */
-    background-size: cover; /* Stretch the image to fill the entire screen */
-    background-position: center; /* Center the background image */
+    background-size: cover; /* Stretch the image to fill the container */
+    background-position: center; /* Center the background */
     background-repeat: no-repeat; /* Prevent tiling */
-    min-height: 100%; /* Ensure the height adjusts based on content */
-    overflow: auto; /* Allow scrolling */
+    position: relative; /* Allow overlay positioning */
+    box-sizing: border-box; /* Include padding and borders in dimensions */
   }
   
-  /* Title Styling */
+  .weather-dashboard::before {
+    content: ''; /* Create the overlay */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+    z-index: 0; /* Ensure the overlay is behind the content */
+  }
+  
+  .weather-dashboard * {
+    position: relative; /* Ensure content appears above the overlay */
+    z-index: 1;
+  }
+  
+  .weather-dashboard.weather-loaded {
+    min-height: 100vh; /* Maintain full height after loading data */
+    overflow-y: auto; /* Allow vertical scrolling for content */
+  }
+  
   .dashboard-title {
     margin-bottom: 20px;
-    font-size: 2.5rem;
-    color: #003399;
+    font-size: 2.5rem; /* Adjust font size for scaling */
+    color: #ffffff; /* White text for contrast */
     text-align: center;
     font-weight: bold;
   }
   
-  /* Input Container Styling */
+  /* Input container before search */
   .input-container {
     display: flex;
     justify-content: center;
@@ -54,19 +75,18 @@ html, body {
     flex-wrap: wrap;
   }
   
-  /* City Input Styling */
   .city-input {
     padding: 12px;
     font-size: 1.1rem;
     border: 1px solid #999;
     border-radius: 8px;
-    width: 70%;
+    width: 70%; /* Adjust width for responsiveness */
     max-width: 400px;
     outline: none;
-    transition: border-color 0.3s;
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for input */
+    color: #000; /* Black text for input */
   }
   
-  /* Button Styling */
   .fetch-button {
     padding: 12px 20px;
     font-size: 1.1rem;
@@ -87,19 +107,20 @@ html, body {
   .weather-details {
     margin-top: 20px;
     text-align: center;
-    color: #333;
+    color: #ffffff; /* White text for contrast */
   }
   
   .weather-location {
     font-size: 2rem;
     margin-bottom: 15px;
-    color: #003399;
+    color: #ffffff; /* White text for better visibility */
     font-weight: bold;
   }
   
   .weather-info {
     font-size: 1.1rem;
     margin: 8px 0;
+    color: #ffffff; /* White text for readability */
   }
   
   /* Forecast Section */
@@ -112,7 +133,7 @@ html, body {
   .forecast-title {
     font-size: 1.5rem;
     margin-bottom: 15px;
-    color: #003399;
+    color: #ffffff; /* White text */
     font-weight: bold;
     text-align: center;
   }
@@ -132,7 +153,7 @@ html, body {
     border: 1px solid #ccc;
     border-radius: 10px;
     position: relative;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.8); /* Darker card background */
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     font-size: 1rem;
@@ -152,7 +173,7 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay for text contrast */
     z-index: 1;
   }
   
@@ -172,9 +193,9 @@ html, body {
     padding: 10px 15px;
     font-size: 1rem;
     text-decoration: none;
-    color: #003399;
+    color: #ffffff;
     background-color: transparent;
-    border: 1px solid #003399;
+    border: 1px solid #ffffff;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
@@ -183,8 +204,8 @@ html, body {
   }
   
   .back-to-home:hover {
-    background-color: #003399;
-    color: white;
+    background-color: #ffffff;
+    color: #003399;
   }
   
   /* Media queries for mobile (max-width: 768px) */
@@ -192,7 +213,7 @@ html, body {
     .weather-dashboard {
       min-height: 100vh; /* Allow content to be scrollable */
       width: 100vw; /* Full width */
-      padding-bottom: 20px; /* Add some bottom padding for better spacing */
+      padding-bottom: 20px; /* Add bottom padding */
     }
   
     .input-container {
@@ -210,8 +231,8 @@ html, body {
   
     .forecast-grid {
       gap: 10px;
-      flex-wrap: nowrap; /* Prevent wrapping of forecast cards */
-      overflow-x: auto; /* Allow horizontal scrolling */
+      flex-wrap: nowrap; /* Prevent wrapping */
+      overflow-x: auto; /* Horizontal scrolling */
       display: flex;
       -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile */
     }
@@ -222,37 +243,13 @@ html, body {
       min-width: 100px;
       margin-right: 10px;
     }
-  
-    .forecast-title {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      text-align: center;
-      font-weight: bold;
-    }
-  
-    .back-to-home {
-      margin-top: 20px;
-    }
   }
   
   /* Media queries for larger screens (min-width: 1025px) */
   @media (min-width: 1025px) {
     .weather-dashboard {
-      max-width: 80%; /* Adjust the max-width of the container */
-      margin: 0 auto; /* Center the content */
-    }
-  
-    .input-container {
-      flex-direction: row;
-      align-items: center;
-    }
-  
-    .city-input {
-      width: 60%;
-    }
-  
-    .fetch-button {
-      width: auto;
+      max-width: 80%; /* Center dashboard on large screens */
+      margin: 0 auto;
     }
   
     .forecast-grid {
