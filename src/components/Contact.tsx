@@ -10,7 +10,7 @@ const Contact = () => {
       {/* Download CV Section */}
       <div className="download-cv">
         <a href="https://Yawshimitsu.github.io/yaw-page//Yavuz_Sucu_CV.pdf" download="Yavuz_Sucu_CV.pdf" className="download-button">
-Link to my CV</a>
+Download  my CV</a>
       </div>
     </section>
   );
